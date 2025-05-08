@@ -1,0 +1,20 @@
+email analysis
+
+1. using this link by copy the header
+https://mxtoolbox.com/EmailHeaders.aspxby 
+
+2. by using 3 dot and choose show original
+3.copy to clipboard and paste to analyzer tool
+
+result
+| ✅ / ❌ | Field                           | What It Means                                                                                                        | Safe or Suspicious?                                          |
+| ----- | ------------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| ❌     | **DMARC Compliant: Problem**    | DMARC (policy for domain protection) failed. The email failed both SPF and/or DKIM alignment.                        | ❗ **Suspicious** — domain owner didn’t approve this message. |
+| ❌     | **SPF Alignment: Problem**      | The **sender domain** and **Return-Path domain** don’t match. Even though SPF passed, it’s **not properly aligned**. | ⚠️ Could be spoofed.                                         |
+| ✅     | **SPF Authenticated: OK**       | The email was sent from a server **authorized** by the domain’s SPF record.                                          | ✅ **Good sign**, but not enough alone.                       |
+| ✅     | **DKIM Alignment: OK**          | The **DKIM signature** matches the sender domain.                                                                    | ✅ **Good sign**, supports authenticity.                      |
+| ❌     | **DKIM Authenticated: Problem** | The DKIM signature is **invalid or missing**, meaning the message may have been tampered with.                       | ❗ **Suspicious**, especially with DMARC fail.                |
+
+
+
+
